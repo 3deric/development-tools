@@ -1,4 +1,5 @@
 from PIL import Image, ImageFilter
+import sys
 import glob
 
 #loops through all images files in a folder
@@ -8,6 +9,8 @@ import glob
 #OutputResolution
 out_width = 1920
 out_height = 1080
+
+folder_path = sys.argv[1]
 
 def resizeBlur(file):
     print(file)
@@ -44,6 +47,6 @@ def resizeBlur(file):
   
 #get all images of type jpg and apply filters
 image_list = []
-for filename in glob.glob('*.jpg'):
+for filename in glob.glob(folder_path + '/*.jpg'):
     im=Image.open(filename)
     resizeBlur(filename)
